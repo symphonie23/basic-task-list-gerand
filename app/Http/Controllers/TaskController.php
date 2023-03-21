@@ -34,7 +34,7 @@ class TaskController extends Controller
     {
         $task = Task::find($taskId);
         $taskList = $task->taskList;
-        return view('task.show', [
+        return view('tasks.show', [
             'task' => $task,
             'taskList' => $taskList,
         ]);
