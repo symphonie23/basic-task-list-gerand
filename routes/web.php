@@ -40,5 +40,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklists.index'); 
 });
 Route::middleware(['auth'])->group(function () {
-    Route::get('/tasks', [TaskListController::class, 'index'])->name('tasklists.index'); 
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index'); 
 });
