@@ -18,6 +18,14 @@ use App\Http\Controllers\TaskListController;
 Route::get('/', function () {
     return view('welcome');
 });
+//button to tasks (button)
+Route::get('/tasks', function () {
+    return view('tasks.index');
+});
+//redirect to tasklists (button)
+Route::get('/tasklists', function () {
+    return view('tasklists.index');
+});
 
 Route::resource("/tasks", TaskController::class);
 Route::post('/tasks', [TaskController::class, 'store']);
