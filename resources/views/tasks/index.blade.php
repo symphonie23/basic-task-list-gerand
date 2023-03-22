@@ -11,6 +11,9 @@
                         <center><a href="{{ url('/tasks/create') }}" class="btn btn-success btn-sm" title="Add New Task">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Task
                         </a>
+                        <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-sm" title="Back to Tasks">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> Go to Task Lists
+                        </a>
                         <br/>
                         <br/>
                         <div class="table-responsive">

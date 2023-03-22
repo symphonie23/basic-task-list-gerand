@@ -17,6 +17,10 @@
         <input type="text" name="name" id="name" value="{{$tasks->name}}" class="form-control"></br>
 
         <input type="submit" value="Update" class="btn btn-success"></br>
+        <!--button to go back to the tasks page-->
+        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-sm" title="Back to Task Lists">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Close
+        </a>
     </form>
   
   </div>
