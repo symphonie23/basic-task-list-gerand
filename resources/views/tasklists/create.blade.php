@@ -1,4 +1,4 @@
-@extends('tasklists.layout')
+@extends('tasks.layout')
 @section('content')
 <div class="row d-flex justify-content-center">
       <div class="col-md-">
@@ -12,8 +12,7 @@
         {!! csrf_field() !!}
         <label>Task List Name:</label></br>
         <input type="text" name="name" id="name" class="form-control"></br>
-        <input type="submit" value="Save" class="btn btn-success"></br>
-
+        <input type="submit" value="Save" class="btn btn-success">
         <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-sm" title="Back to Task Lists">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel
         </a>
