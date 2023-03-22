@@ -1,47 +1,63 @@
 <?php
+ 
 namespace App\Http\Controllers;
-use App\Models\Task;
+ 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Task;
+use App\Models\TaskList;
+use Illuminate\View\View;
+ 
 class TaskController extends Controller
 {
-    public function index()
+ 
+    public function index(): View
     {
-        $tasks = Task::orderBy('created_at', 'asc')->get();
-        return view('tasks', [
-            'tasks' => $tasks
-        ]);
+        $tasks = Task::all();
+        return view ('tasks.index')->with('tasks', $tasks);
     }
-    public function store(Request $request)
+ 
+    public function create()
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-        ]);
-        if ($validator->fails()) {
-            return redirect('/')
-                ->withInput()
-                ->withErrors($validator);
-        }
-        $task = new Task;
-        $task->name = $request->name;
-        $task->save();
-        return redirect('/');
+        $task_lists = TaskList::all();
+        return view('tasks.create', compact('task_lists'));
     }
-        /**
-     * Show a specific task and its associated task list.
-     */
-    public function showTask($taskId)
+  
+    public function store(Request $request): RedirectResponse
     {
-        $task = Task::find($taskId);
-        $taskList = $task->taskList;
-        return view('tasks.show', [
-            'task' => $task,
-            'taskList' => $taskList,
-        ]);
+        $input = $request->all();
+        Task::create($input);
+        return redirect('tasks')->with('flash_message', 'Task Addedd!');
     }
-    public function destroy(Task $task)
+ 
+    public function show(string $id): View
     {
-        $task->delete();
-        return redirect('/');
+        $task = Task::find($id);
+        return view('tasks.show')->with('tasks', $task);
     }
+ 
+    public function edit(string $id): View
+    {
+        $task = Task::find($id);
+        $tasklists = TaskList::all();
+        return view('tasks.edit', ['task_lists' => $tasklists])->with('tasks', $task);
+    }
+ 
+    public function update(Request $request, string $id): RedirectResponse
+    {
+        $task = Task::find($id);
+        $input = $request->all();
+        $task->update($input);
+        return redirect('tasks')->with('flash_message', 'task Updated!');  
+    }
+ 
+    
+    public function destroy(string $id): RedirectResponse
+    {
+        Task::destroy($id);
+        return redirect('tasks')->with('flash_message', 'Task deleted!');
+    }  
 }

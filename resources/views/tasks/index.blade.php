@@ -5,11 +5,11 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                        <center><h2>Task Lists</h2>
+                        <center><h2>Task</h2>
                     </div>
                     <div class="card-body">
-                        <center><a href="{{ url('/tasklists/create') }}" class="btn btn-success btn-sm" title="Add New Task">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Create List
+                        <center><a href="{{ url('/tasks/create') }}" class="btn btn-success btn-sm" title="Add New Task">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add Task
                         </a>
                         <br/>
                         <br/>
@@ -17,20 +17,20 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>No.List</th>
                                         <th>Task Name</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($tasklists as $tasklist)
+                                @foreach($tasks as $item)
                                 <tr>
-                                <td>{{ $tasklist->id }}</td>
-                                        <td>{{ $tasklist->name }}</td>
+                                <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
                                         <td>
-                                            <a href="{{ url('/tasklists/' . $tasklist->id) }}" title="View Task"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/tasklists/' . $tasklist->id . '/edit') }}" title="Edit Task"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            <form method="POST" action="{{ url('/tasklists/' . $tasklist->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <a href="{{ url('/tasks/' . $item->id) }}" title="View Task"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/tasks/' . $item->id . '/edit') }}" title="Edit Task"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <form method="POST" action="{{ url('/tasks/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Task" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>

@@ -1,23 +1,27 @@
-@extends('layouts.app')
-
+@extends('tasks.layout')
 @section('content')
-    <div class="container">
-        <h1>{{ $tasklist->name }}</h1>
-        <p>{{ $tasklist->description }}</p>
+<div class="card">
+  <div class="card-header">Task List</div>
+  <div class="card-body">
+        <div class="card-body">
+        <h5 class="card-title">{{ $tasklist->name }}</h5>
 
-        <h2>Tasks</h2>
-        <ul>
-            @foreach ($tasks as $task)
-                <li>{{ $task->name }}</li>
-            @endforeach
-        </ul>
-
-        <a href="{{ route('tasklists.edit', $tasklist->id) }}" class="btn btn-primary">Edit</a>
-
-        <form action="{{ route('tasklists.destroy', $tasklist->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-    </div>
-@endsection
+        <table class="table">
+          <thead>
+              <tr>
+                  <th>Tasks</th>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach ($tasks as $task)
+                  <tr>
+                      <td>
+                        {{ $task->name }}
+                      </td>
+                  </tr>
+              @endforeach
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

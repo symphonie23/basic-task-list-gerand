@@ -1,18 +1,17 @@
-@extends('layouts.app')
-
+@extends('tasks.layout')
 @section('content')
-    <h1>Edit Task List</h1>
-    <form action="{{ route('tasklists.update', $tasklist->id) }}" method="POST">
-        @csrf
-        @method('PUT')
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $tasklist->name }}">
-        </div>
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <textarea class="form-control" id="description" name="description">{{ $tasklist->description }}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Save</button>
+<div class="card">
+  <div class="card-header">Edit Tasklist</div>
+  <div class="card-body">
+      
+      <form action="{{ url('tasklists/' .$tasklist->id) }}" method="post">
+        {!! csrf_field() !!}
+        @method("PATCH")
+        <label>Task List Name</label></br>
+        <input type="text" name="name" id="name" placeholder="{{ $tasklist->name }}" class="form-control"></br>
+        <input type="submit" value="Save" class="btn btn-success"></br>
     </form>
-@endsection
+  
+  </div>
+</div>
+@stop

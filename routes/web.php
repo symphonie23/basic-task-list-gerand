@@ -15,12 +15,16 @@ use App\Http\Controllers\TaskListController;
 |
 */
 
-Route::get('/', [TaskController::class, 'index']);
-Route::post('/task', [TaskController::class, 'store']);
-Route::delete('/task/{task}', [TaskController::class, 'destroy']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/task', [TaskController::class, 'create'])->name('tasklists.create');
-Route::get('/task/{task}', [TaskController::class, 'show'])->name('tasklists.show');
-Route::get('/task/{task}/edit', [TaskController::class, 'edit'])->name('tasklists.edit');
+Route::resource("/tasks", TaskController::class);
+Route::post('/tasks', [TaskController::class, 'store']);
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
+Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
 
-Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklists.index');
+Route::resource("/tasklists", TaskListController::class);
+Route::post('/tasklists', [TaskListController::class, 'store']);
+Route::delete('/tasklists/{task}', [TaskListController::class, 'destroy']);
+Route::get('/tasklists/{id}/edit', [TaskListController::class, 'edit'])->name('tasklists.edit');

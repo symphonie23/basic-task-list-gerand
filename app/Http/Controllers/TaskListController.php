@@ -2,33 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TaskList;
 use Illuminate\Http\Request;
+use App\Models\TaskList;
 
 class TaskListController extends Controller
 {
     public function index()
     {
         $tasklists = TaskList::all();
+
         return view('tasklists.index', compact('tasklists'));
     }
 
     public function create()
     {
-        return view('tasklists.create');
+        $tasklists = TaskList::all();
+
+        return view('tasklists.create', compact('tasklists'));
     }
 
     public function store(Request $request)
     {
-        $tasklist = TaskList::create($request->all());
-        return redirect()->route('tasklists.show', $tasklist->id);
+        $tasklist = new TaskList([
+            'name' => $request->name,
+        ]);
+        $tasklist->save();
+
+        return redirect()->route('tasklists.index');
     }
 
     public function show(TaskList $tasklist)
     {
-        $tasks = $tasklist->task;
-        return view('tasklists.show', compact('tasklist', 'tasks'));
+        $tasks = $tasklist->tasks;
+        return view('tasklists.show', ['tasklist' => $tasklist, 'tasks' => $tasks]);
     }
+
 
     public function edit(TaskList $tasklist)
     {
@@ -37,13 +45,17 @@ class TaskListController extends Controller
 
     public function update(Request $request, TaskList $tasklist)
     {
-        $tasklist->update($request->all());
-        return redirect()->route('tasklists.show', $tasklist->id);
+        $tasklist->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('tasklists.index');
     }
 
     public function destroy(TaskList $tasklist)
     {
         $tasklist->delete();
+
         return redirect()->route('tasklists.index');
     }
 }
