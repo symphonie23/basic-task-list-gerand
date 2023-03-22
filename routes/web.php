@@ -16,7 +16,7 @@ use App\Http\Controllers\TaskListController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 //button to tasks (button)
 Route::get('/tasks', function () {
@@ -36,3 +36,17 @@ Route::resource("/tasklists", TaskListController::class);
 Route::post('/tasklists', [TaskListController::class, 'store']);
 Route::delete('/tasklists/{task}', [TaskListController::class, 'destroy']);
 Route::get('/tasklists/{id}/edit', [TaskListController::class, 'edit'])->name('tasklists.edit');
+Auth::routes();
+
+//Authentication//
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklists.index'); 
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/tasks', [TaskListController::class, 'index'])->name('tasklists.index'); 
+});
