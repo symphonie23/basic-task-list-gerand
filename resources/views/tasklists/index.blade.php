@@ -1,26 +1,24 @@
 @extends('tasklists.layout')
 @section('content')
 <div class="row d-flex justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Task Lists</h2>
+                        <center><h2>Task Lists</h2>
                     </div>
-                    <div class="card-body p-4">
-        <div class="form-outline mb-4">
-                        <a href="{{ url('/tasklists/create') }}" class="btn btn-success btn-md" title="Add New Task">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Create Tasklist
+                    <div class="card-body">
+                        <center><a href="{{ url('/tasklists/create') }}" class="btn btn-success btn-md" title="Add New Task">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
                         </a>
                         <br/>
                         <br/>
-                        <div class="card-header">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Task Name</th>
-                                        <th>Actions</th>
+                                        <th class="col-2">ID</th>
+                                        <th class="col-7">Task Name</th>
+                                        <th class="col-8">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
