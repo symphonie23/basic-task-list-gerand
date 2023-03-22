@@ -27,7 +27,7 @@
           </tbody>
         </table>
         <!--go back to the tasklists page-->
-        <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-sm" title="Back to Task Lists">
+        <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Task Lists
         </a>
       </div>
