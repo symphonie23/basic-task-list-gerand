@@ -1,13 +1,17 @@
-@extends('tasks.layout')
+@extends('tasklists.layout')
 @section('content')
-<div class="card">
-  <div class="card-header">Task List</div>
-  <div class="card-body">
+<div class="row d-flex justify-content-center">
+     <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <center><h2>Task Lists</h2>
+          <div>
+        <div class="card" >
         <div class="card-body">
-        <h5 class="card-title">{{ $tasklist->name }}</h5>
-
-        <table class="table">
-          <thead>
+            <h5 class="card-title">{{ $tasklist->name }}</h5>
+       <div class="card-header">
+           <table class="table">
+        <thead>
               <tr>
                   <th>Tasks</th>
               </tr>
