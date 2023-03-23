@@ -10,9 +10,6 @@
                         <center><a href="{{ url('/tasklists/create') }}" class="btn btn-success btn-md" title="Add New Task">
                         <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
                         </a>
-                        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md" title="Back to Tasks">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i> Go to Tasks
-                        </a>
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -20,7 +17,7 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th class="col-2">ID</th>
-                                        <th class="col-7">Task</th>
+                                        <th class="col-7">Task List Name</th>
                                         <th class="col-3">Actions</th>
                                     </tr>
                                 </thead>

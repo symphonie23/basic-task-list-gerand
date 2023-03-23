@@ -9,7 +9,7 @@
                         <h2>Task</h2>
                     </div>
                     <div class="card-body">
-                    <center><a href="{{ url('/tasklists/create') }}" class="btn btn-success btn-md" title="Add New Task">
+                    <center><a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task">
                         <i class="fa fa-plus" aria-hidden="true"></i> Create Task
                         </a>
                         <br/>
@@ -18,7 +18,7 @@
                             <table class="table border border-dark">
                                 <thead>
                                     <tr class= "text-center">
-                                        <th>Task No.</th>
+                                        <th>ID</th>
                                         <th>Task Name</th>
                                         <th>Actions</th>
                                     </tr>
