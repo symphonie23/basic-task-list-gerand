@@ -10,7 +10,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ $tasklist->name }}</h5>
         <div class="card-header">
-           <table class="table">
+           <table class="table table-striped">
         <thead class="col-12">
               <tr>
                   <th class="text-center col-sm-1">ID</th>
