@@ -33,7 +33,7 @@
             })
     </script>
 </head>
-<body style="background-image: url('https://images.unsplash.com/photo-1678776682765-25854662bbdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2081&q=80'); background-size: cover; background-repeat: no-repeat;">
+<body style="background-image: url('https://images.unsplash.com/photo-1678776682765-25854662bbdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2081&q=80'); background-size: cover; background-attachment: fixed; background-repeat: no-repeat;">
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: -1;"></div>
 <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-transparent shadow-none p-3 mb-5 bg-body-tertiary rounded">
