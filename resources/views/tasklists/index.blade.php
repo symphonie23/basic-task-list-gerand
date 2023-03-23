@@ -19,8 +19,8 @@
                         <table>
                                 <thead>
                                     <tr class="text-center">
-                                        <th class="col-sm-2">ID</th>
-                                        <th class="col-sm-7">Task List Name</th>
+                                        <th class="col-sm-1">ID</th>
+                                        <th class="col-sm-8">Task List Name</th>
                                         <th class="col-sm-3">Actions</th>
                                     </tr>
                                 </thead>
