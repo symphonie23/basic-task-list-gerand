@@ -1,7 +1,7 @@
 @extends('tasks.layout')
 @section('content')
 <div class="card">
-  <div class="card-header">Add Tasks</div>
+  <div class="card-header">Add a Task</div>
   <div class="card-body">
       
       <form action="{{ url('tasks') }}" method="post">
@@ -14,7 +14,7 @@
         </select></br>
         <label>Task Name</label></br>
         <input type="text" name="name" id="name" class="form-control"></br>
-        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-sm" title="Back to Task Lists">
+        <a href="{{ url('/tasklists/') }}" class="btn btn-secondary" title="Back to Task Lists">
           <i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel
         </a>
         <input type="submit" value="Save" class="btn btn-success"></br>
