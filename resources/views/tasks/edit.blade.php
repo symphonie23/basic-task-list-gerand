@@ -26,7 +26,7 @@
             <a href="{{ url('/tasks') }}" class="btn btn-outline-danger" title="Back to Tasks">
               Cancel
             </a>
-            <input type="submit" value="Update" class="btn btn-success">
+            <input type="submit" value="Update" class="btn" style="background-color: #2AAA8A; color:white;">
           </form>
         </div>
       </div>
