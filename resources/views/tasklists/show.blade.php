@@ -32,9 +32,7 @@
                 <!--Edit Button-->
                 <a href="{{ url('/tasks/' . $task->id . '/edit') }}" title="Edit Task">
                     <button class="btn btn-outline-primary btn-sm m-1">
-                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
-                    </button>
-                </a>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                 <!--Delete Button-->
                 <form method="POST" action="{{ url('/tasks/' . $task->id) }}" accept-charset="UTF-8" style="display:inline">
                     {{ method_field('DELETE') }}
