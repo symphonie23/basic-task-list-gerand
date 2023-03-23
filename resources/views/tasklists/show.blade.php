@@ -4,17 +4,17 @@
      <div class="col-sm-12">
       <div class="card">
         <div class="card-header">
-          <center><h2>Tasks</h2>
+          <center><h2>{{ $tasklist->name }}</h2>
           <div>
         <div class="card" >
         <div class="card-body">
-            <h5 class="card-title">{{ $tasklist->name }}</h5>
-                <center>
-                    <a href="{{ url('/tasks/create') }}" class="btn btn-md"style="background-color: #2AAA8A; color:white;"title="Add New Task">
-                    <i class="fa fa-plus" aria-hidden="true"></i> Create Task
-                    </a>
-                </center>
-                <br>
+            <h5 class="card-title"></h5>
+
+              <a href="{{ url('/tasks/create') }}" class="btn btn-md"style="background-color: #2AAA8A; color:white; float:right;"title="Add New Task">
+              <i class="fa fa-plus" aria-hidden="true"></i> Create Task
+              </a>
+
+              <br><br>
         
            <table class="table table-striped">
             <thead class="col-12" style="background-color:#bdc4c8;">
