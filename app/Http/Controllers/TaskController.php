@@ -30,7 +30,7 @@ class TaskController extends Controller
     {
         $input = $request->all();
         Task::create($input);
-        return redirect('tasks')->with('flash_message', 'Task Addedd!');
+        return redirect('tasklists')->with('flash_message', 'Task Added!');
     }
  
     public function show(string $id): View
@@ -51,13 +51,13 @@ class TaskController extends Controller
         $task = Task::find($id);
         $input = $request->all();
         $task->update($input);
-        return redirect('tasks')->with('flash_message', 'task Updated!');  
+        return redirect('tasklists')->with('flash_message', 'Task Updated!');  
     }
  
     
     public function destroy(string $id): RedirectResponse
     {
         Task::destroy($id);
-        return redirect('tasks')->with('flash_message', 'Task deleted!');
+        return redirect('tasklists')->with('flash_message', 'Task Deleted!');
     }  
 }
