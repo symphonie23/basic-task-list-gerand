@@ -14,8 +14,8 @@
         </select></br>
         <label>Task Name</label></br>
         <input type="text" name="name" id="name" class="form-control"></br>
-        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-sm" title="Back to Task Lists">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel
+        <a href="{{ url('/tasks') }}" class="btn btn-danger btn-md" title="Back to Task Lists">
+          Cancel
         </a>
         <input type="submit" value="Save" class="btn btn-success"></br>
     </form>
