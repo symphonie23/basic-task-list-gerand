@@ -82,7 +82,7 @@ th,td{
 }
 
 tr:hover td{
-        color: green;   
+        color: #2AAA8A;   
         background-color: #f6f9fc;
 }
 .pagination{
