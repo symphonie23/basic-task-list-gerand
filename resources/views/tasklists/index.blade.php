@@ -9,7 +9,7 @@
             <h2>Task Lists</h2>
             <div>
                 
-                <a href="{{ url('/tasklists/create') }}" class="btn btn-success btn-md" title="Add New Task">
+                <a href="{{ url('/tasklists/create') }}" class="btn btn-md" style="background-color: #2AAA8A;" title="Add New Task">
                     <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
                 </a>
             </div>
