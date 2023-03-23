@@ -85,28 +85,6 @@ tr:hover td{
         color: #2AAA8A;   
         background-color: #f6f9fc;
 }
-.pagination{
-    display:flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 10px 20px;
-
-}
-.pagination div{
-    padding: 10px;
-    border: 2px solid #d5d0d0;
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: green;
-    color: #ffffff;
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
-    margin: 0 5px;
-    cursor: pointer;
-}
 
 ::-webkit-scrollbar{
     height: 5px;
