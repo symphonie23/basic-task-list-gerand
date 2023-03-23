@@ -17,7 +17,7 @@
         <a href="{{ url('/tasklists/') }}" class="btn btn-secondary" title="Back to Task Lists">
           <i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel
         </a>
-        <input type="submit" value="Save" class="btn btn-success"></br>
+        <input type="submit" value="Save" class="btn" style="background-color: #2AAA8A; color:white;"></br>
     </form>
   </div>
 </div>

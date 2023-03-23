@@ -10,7 +10,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ $tasklist->name }}</h5>
                 <center>
-                    <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task">
+                    <a href="{{ url('/tasks/create') }}" class="btn btn-md"style="background-color: #2AAA8A; color:white;"title="Add New Task">
                     <i class="fa fa-plus" aria-hidden="true"></i> Create Task
                     </a>
                 </center>
