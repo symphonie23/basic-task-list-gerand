@@ -65,6 +65,7 @@ table{
     table-layout: fixed;
     min-width: 1000px;
     border-collapse: collapse;
+    
 }
 thead th{
     position: sticky;
