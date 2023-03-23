@@ -28,10 +28,10 @@
             <tr>
                 <td>{{ $task->id }}</td>
                 <td>{{ $task->name }}</td>
-                <td>
+                <td class="text-center">
                 <!--Edit Button-->
                 <a href="{{ url('/tasks/' . $task->id . '/edit') }}" title="Edit Task">
-                    <button class="btn btn-outline-primary btn-md m-1">
+                    <button class="btn btn-outline-primary">
                       <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                     </button>
                 </a>
@@ -39,7 +39,7 @@
                 <form method="POST" action="{{ url('/tasks/' . $task->id) }}" accept-charset="UTF-8" style="display:inline">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-outline-danger btn-md m-1" title="Delete Task" onclick="return confirm(&quot;Confirm delete?&quot;)">
+                    <button type="submit" class="btn btn-outline-danger" title="Delete Task" onclick="return confirm(&quot;Confirm delete?&quot;)">
                       <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
                     </button>
                 </form>
