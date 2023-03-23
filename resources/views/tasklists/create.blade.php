@@ -2,7 +2,7 @@
 @section('content')
 <div class="row d-flex justify-content-center">
       <div class="col-md-">
-      <div class="card">
+      <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
       <div class="card-header">
         <center><h2>Create Task Lists<h2>
       </div>
