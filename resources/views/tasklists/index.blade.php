@@ -10,17 +10,17 @@
             <div>
                 
                 <a href="{{ url('/tasklists/create') }}" class="btn btn-success btn-md" title="Add New Task">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
-                        </a>
+                    <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
+                </a>
             </div>
         </div>
         <div class="card">
                      <div class="table_section">
-                        <table>
+                        <table class="table table-striped">
                                 <thead>
                                     <tr class="text-center">
-                                        <th class="col-sm-2">ID</th>
-                                        <th class="col-sm-7">Task List Name</th>
+                                        <th class="col-sm-1">ID</th>
+                                        <th class="col-sm-8">Task List Name</th>
                                         <th class="col-sm-3">Actions</th>
                                     </tr>
                                 </thead>
