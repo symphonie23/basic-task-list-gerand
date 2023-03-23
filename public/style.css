@@ -74,13 +74,6 @@ thead, th{
     color: black;
     font-size: 15px;
 }
-.show thead, th{
-    position: sticky;
-    top: 0;
-    background-color: #bdc4c8;
-    color: black;
-    font-size: 15px;
-}
 
 th,td{
     border-bottom: 1px solid #dddddd;
@@ -89,7 +82,7 @@ th,td{
 }
 
 tr:hover td{
-        color: green;   
+        color: #2AAA8A;   
         background-color: #f6f9fc;
 }
 .pagination{
