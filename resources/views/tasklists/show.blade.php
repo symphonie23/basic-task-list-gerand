@@ -14,11 +14,17 @@
         <thead>
               <tr>
                   <th>Tasks</th>
+                
+                        <center><a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add Task
+                        </a>
+                        
               </tr>
           </thead>
           <tbody>
               @foreach ($tasks as $task)
                   <tr>
+                    
                       <td>
                         {{ $task->name }}
                       </td>
