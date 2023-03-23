@@ -67,7 +67,8 @@ table{
     border-collapse: collapse;
     
 }
-thead th{
+thead, th{
+    position: sticky;
     top: 0;
     background-color: #bdc4c8;
     color: black;

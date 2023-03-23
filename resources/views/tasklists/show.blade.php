@@ -9,20 +9,22 @@
         <div class="card" >
         <div class="card-body">
             <h5 class="card-title">{{ $tasklist->name }}</h5>
-        <div class="card-header">
+                <center>
+                    <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Create Task
+                    </a>
+                </center>
+                <br>
+        
            <table class="table table-striped">
-        <thead class="col-12">
+            <thead class="col-12" style="background-color:#bdc4c8;">
               <tr>
                   <th class="text-center col-sm-1">ID</th>
                   <th class="text-center col-sm-8">Task Names</th>
-                    <center>
-                        <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Create Task
-                        </a>
-                    </center>
+                    
                     <th class="text-center col-sm-3">Action</th>
               </tr>
-          </thead>
+            </thead>
           <tbody>
             @foreach ($tasks as $task)
             <tr>
@@ -52,7 +54,6 @@
         <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Task Lists
         </a>
-      </div>
   </div>
 </div>
 @stop
