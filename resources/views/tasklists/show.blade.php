@@ -14,7 +14,7 @@
         <thead class="col-12">
               <tr>
                   <th class="text-center col-sm-1">ID</th>
-                  <th class="col-sm-8">Task Names</th>
+                  <th class="text-center col-sm-8">Task Names</th>
                     <center>
                         <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task">
                         <i class="fa fa-plus" aria-hidden="true"></i> Create Task
