@@ -1,7 +1,5 @@
 @extends('tasks.layout')
-
 @section('content')
-
 <div class="container">
   <div class="col">
     <div class="col-md-12">
@@ -14,7 +12,7 @@
             {!! csrf_field() !!}
             @method("PATCH")
             <label>Task List:</label></br>
-            <input type="hidden" name="id" id="id" value="{{$tasks->id}}" id="id" />
+            <input type="hidden" name="id" id="id" value="{{$tasks->id}}" id="id">
             <select name="task_list_id" id="task_list_id" class="form-control">
               @foreach ($task_lists as $task_list)
                 <option value="{{ $task_list->id }}">{{ $task_list->name }}</option>
@@ -23,9 +21,7 @@
             <label>Task Name:</label></br>
             <input type="text" name="name" id="name" value="{{$tasks->name}}" class="form-control"></br>
             <!--button to go back to the tasklists page-->
-            <a href="{{ url('/tasks') }}" class="btn btn-outline-danger" title="Back to Tasks">
-              Cancel
-            </a>
+            <a href="{{ url('/tasks') }}" class="btn btn-outline-danger" title="Back to Tasks"> Cancel</a>
             <input type="submit" value="Update" class="btn" style="background-color: #2AAA8A; color:white;">
           </form>
         </div>
