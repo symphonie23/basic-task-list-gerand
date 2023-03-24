@@ -1,24 +1,26 @@
 @extends('tasks.layout')
 @section('content')
-<div class="card">
-  <div class="card-header">Add a Task</div>
-    <div class="card-body">
-      <form action="{{ url('tasks') }}" method="post">
-        {!! csrf_field() !!}
-        <label>Task List</label>
-        <select name="task_list_id" id="task_list_id" class="form-control">
-          @foreach ($task_lists as $task_list)
-            <option value="{{ $task_list->id }}">{{ $task_list->name }}</option>
-          @endforeach
-        </select><br>
-        <label>Task Name</label>
-        <input type="text" name="name" id="name" class="form-control"><br>
-        <!--go back to tasklists-->
-        <a href="{{ url('/tasklists/') }}" class="btn btn-secondary" title="Back to Task Lists">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel
-        </a>
-        <input type="submit" value="Save" class="btn" style="background-color: #2AAA8A; color:white;">
-      </form>
+<div class="row d-flex justify-content-center">
+  <div class="col-md-12">
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+      <div class="card-header">
+        <center><h2>Create Task</h2>
+      </div>
+      <div class="card-body">
+        <form action="{{ url('tasklists') }}" method="post">
+          {!! csrf_field() !!}
+          <label>Task Name:</label>
+          <input type="text" name="name" id="name" class="form-control"><br>
+          <label>Task Description:</label>
+          <input type="text" name="name" id="name" class="form-control"><br>
+          <!--button to go back to the tasklists page-->
+          <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
+             Cancel
+          </a>
+          <!--save button-->
+          <input type="submit" value="Save" class="btn btn-success btn-md" style="background-color: #2AAA8A; color:white;">
+        </form>
+      </div>
     </div>
   </div>
 </div>

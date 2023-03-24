@@ -1,14 +1,13 @@
 @extends('tasks.layout')
 @section('content')
-<div class="container">
-  <div class="col">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header text-center">
-          <h2>Task</h2>
-        </div>
-        <div class="card-body">
-          <form action="{{ url('tasks/' .$tasks->id) }}" method="post">
+<div class="row d-flex justify-content-center">
+  <div class="col-md-12">
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+      <div class="card-header">
+        <center><h2>Edit Task</h2>
+      </div>
+      <div class="card-body">
+      <form action="{{ url('tasks/' .$tasks->id) }}" method="post">
             {!! csrf_field() !!}
             @method("PATCH")
             <label>Task List:</label></br>
@@ -20,11 +19,12 @@
             </select></br>
             <label>Task Name:</label></br>
             <input type="text" name="name" id="name" value="{{$tasks->name}}" class="form-control"></br>
+            <label>Task Description:</label></br>
+            <input type="text" name="name" id="name" value="{{$tasks->name}}" class="form-control"></br>
             <!--button to go back to the tasklists page-->
             <a href="{{ url('/tasks') }}" class="btn btn-outline-danger" title="Back to Tasks"> Cancel</a>
             <input type="submit" value="Update" class="btn" style="background-color: #2AAA8A; color:white;">
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
