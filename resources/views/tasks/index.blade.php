@@ -9,10 +9,10 @@
             <h2>Tasks</h2>
             <div>
             <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Tasklist
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Task Lists
                     </a>
                 <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task" style="background-color: #2AAA8A; color:white;">
-                    <i class="fa fa-plus" aria-hidden="true"></i> Create Task
+                    <i class="fa fa-plus" aria-hidden="true"></i> Create a Task
                 </a>
             </div>
         </div>
@@ -43,7 +43,6 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
-                                <!--button to go back to the tasklists page-->
                             </table>
                         </div>
                     </div>

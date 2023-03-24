@@ -11,7 +11,7 @@
             <h5 class="card-title"></h5>
 
               <a href="{{ url('/tasks/create') }}" class="btn btn-md"style="background-color: #2AAA8A; color:white; float:right;"title="Add New Task">
-              <i class="fa fa-plus" aria-hidden="true"></i> Create Task
+              <i class="fa fa-plus" aria-hidden="true"></i> Create a Task
               </a>
 
               <br><br>
