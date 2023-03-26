@@ -2,20 +2,26 @@
 
 @section('content')
 
-<div class="container">
-  <div class="col">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header text-center">
-        <h2>Task</h2>
-        </div>
-        <div class="card-body">
+<div class="row d-flex justify-content-center">
+  <div class="col-md-12">
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+      <div class="card-header">
+        <center><h2>Task</h2>
+      </div>
+      <div class="card-body">
+        @if ($tasks)
         <label>Task Name</label></br>
         <input type="text" name="name" id="name" class="form-control" value="{{ $tasks->name }}" disabled></br>
-          <a href="{{ url('/tasks') }}" class="btn btn-danger btn-md" title="Back to Task Lists">
+        @endif
+
+        @if ($tasks)
+        <label>Task Description</label></br>
+        <input type="text" name="desc" id="desc" class="form-control" value="{{ $tasks->desc }}" disabled></br>
+        @endif
+
+        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
             Close
-          </a>
-        </div>
+        </a>
       </div>
     </div>
   </div>
