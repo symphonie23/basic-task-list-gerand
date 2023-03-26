@@ -16,12 +16,97 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- CSS only -->
-    <link rel="stylesheet" href="style.css" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!--??????????-->
     <title>{{ config('app.name', 'Laravel') }}</title>
- 
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow:hidden;
+}
+.table{
+    width: 100%;
+}
+.table_header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 240);
+}
+.table_header p{
+    color : #000000;
+}
+button {
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.add_new{
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: green;
+}
+input {
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid lightgreen;
+    border-radius: 6px;
+    color: green;
+}
+::placeholder{
+    color:darkgreen;
+}
+.table_section{
+    height: 460px;
+    overflow: auto;
+}
+table{
+    width: 100%;
+    table-layout: fixed;
+    min-width: 1000px;
+    border-collapse: collapse;
+}
+thead, th{
+    position: sticky;
+    top: 0;
+    background-color: #d2d8db;
+    color: black;
+    font-size: 15px;
+}
+th,td{
+    border-bottom: 1px solid #dddddd;
+    padding:10px 20px;
+    word-break: break-all;
+}
+tr:hover td{
+        color: #2AAA8A;   
+        background-color: #f6f9fc;
+}
+::-webkit-scrollbar{
+    height: 5px;
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ </style>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>    
 
