@@ -61,7 +61,7 @@ button {
 }
 input {
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 0;
     outline: none;
     border: 1px solid lightgreen;
     border-radius: 6px;
