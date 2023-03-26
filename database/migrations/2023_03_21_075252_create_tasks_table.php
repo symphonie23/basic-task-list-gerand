@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('task_list_id')->unsigned();
             $table->string('name');
+            $table->string('desc');
             $table->timestamps();
             $table->foreign('task_list_id')
             ->references('id')

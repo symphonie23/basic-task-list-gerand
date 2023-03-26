@@ -20,7 +20,7 @@
             <label>Task Name:</label></br>
             <input type="text" name="name" id="name" value="{{$tasks->name}}" class="form-control"></br>
             <label>Task Description:</label></br>
-            <input type="text" name="name" id="name" value="{{$tasks->name}}" class="form-control"></br>
+            <input type="text" name="desc" id="desc" value="{{$tasks->desc}}" class="form-control"></br>
             <!--button to go back to the tasklists page-->
             <a href="{{ url('/tasks') }}" class="btn btn-outline-danger" title="Back to Tasks"> Cancel</a>
             <input type="submit" value="Update" class="btn" style="background-color: #2AAA8A; color:white;">
