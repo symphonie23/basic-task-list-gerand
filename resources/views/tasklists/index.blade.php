@@ -2,13 +2,12 @@
 @section('content')
 <div class="row d-flex justify-content-center">
 
-<div class="col-sm-12">
-  <div class="card">
+<div class="col-md-12">
+<div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
   <div class="card-header">
         <div class="table_header">
             <h2>Task Lists</h2>
             <div>
-                
                 <a href="{{ url('/tasklists/create') }}" class="btn btn-md" style="background-color: #2AAA8A; color:white;" title="Add New Task">
                     <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
                 </a>
@@ -43,8 +42,6 @@
 
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="pagination">
                        
                     </div>
                 </div>

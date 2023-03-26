@@ -13,7 +13,7 @@
           <input type="text" name="name" id="name" class="form-control"><br>
           <!--button to go back to the tasklists page-->
           <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel
+            Cancel
           </a>
           <!--save button-->
           <input type="submit" value="Save" class="btn btn-success btn-md" style="background-color: #2AAA8A; color:white;">
