@@ -9,14 +9,19 @@
         <center><h2>Task</h2>
       </div>
       <div class="card-body">
-      <label>Task Name</label></br>
+        @if ($tasks)
+        <label>Task Name</label></br>
         <input type="text" name="name" id="name" class="form-control" value="{{ $tasks->name }}" disabled></br>
+        @endif
+
+        @if ($tasks)
         <label>Task Description</label></br>
-        <input type="text" name="name" id="name" class="form-control" value="{{ $tasks->name }}" disabled></br>
-          <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
+        <input type="text" name="desc" id="desc" class="form-control" value="{{ $tasks->desc }}" disabled></br>
+        @endif
+
+        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
             Close
-          </a>
-        </form>
+        </a>
       </div>
     </div>
   </div>
