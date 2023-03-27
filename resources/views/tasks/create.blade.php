@@ -19,12 +19,12 @@
           <input type="text" name="name" id="name" class="form-control"><br>
           <label>Task Description</label>
           <input type="text" name="desc" id="desc" class="form-control"><br>
-          <!--button to go back to the tasklists page-->
-          <a href="{{ url('/tasks') }}" class= "btn btn-secondary btn-md" title="Back to Task Lists">
-             Cancel
-          </a>
           <!--save button-->
-          <input type="submit" value="Save" class="btn btn-success btn-md" style="background-color: #2AAA8A; color:white;">
+          <input type="submit" value="Save" class="btn btn-success btn-md float-end" style="background-color: #2AAA8A; color:white;">
+          <!--button to go back to the tasklists page-->
+          <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md float-end  mx-2" title="Back to Task Lists">
+              Cancel
+          </a>
         </form>
       </div>
     </div>

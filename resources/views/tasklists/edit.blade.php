@@ -13,8 +13,8 @@
           <label>Task List Name:</label>
           <input type="text" name="name" id="name" placeholder="{{ $tasklist->name }}" class="form-control"><br>
           <!--button to go back to the tasklists page-->
-            <a href="{{ url('/tasklists') }}" class="btn btn-outline-danger" title="Back to Tasks"> Cancel</a>
-            <input type="submit" value="Update" class="btn" style="background-color: #2AAA8A; color:white;">
+          <input type="submit" value="Update" class="btn float-end" style="background-color: #2AAA8A; color:white;">
+          <a href="{{ url('/tasks') }}" class="btn btn-outline-danger float-end mx-2" title="Back to Tasks">Cancel</a>
           <!--save button-->
          </form>
       </div>
