@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tasks', function (Blueprint $table) {
+            $table->boolean('finished')->default(false);
             $table->increments('id');
             $table->integer('task_list_id')->unsigned();
             $table->string('name');
@@ -30,5 +31,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('tasks');
+        
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('finished');
+        });
     }
 };
