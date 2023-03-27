@@ -15,9 +15,9 @@
               <option value="{{ $task_list->id }}">{{ $task_list->name }}</option>
             @endforeach
           </select><br> <!-- this section is for the tasklist-->
-          <label>Task Name:</label>
+          <label>Task Name</label>
           <input type="text" name="name" id="name" class="form-control"><br>
-          <label>Task Description:</label>
+          <label>Task Description</label>
           <input type="text" name="desc" id="desc" class="form-control"><br>
           <!--button to go back to the tasklists page-->
           <a href="{{ url('/tasks') }}" class= "btn btn-secondary btn-md" title="Back to Task Lists">

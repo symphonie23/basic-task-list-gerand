@@ -21,18 +21,15 @@
                     <thead>
                         <tr class="text-center">
                             
-                            <th class="col-sm-1"></th>
+                            <th class="col-sm-1">ID</th>
                             <th class="col-sm-8">Task Name</th>
-                            
                             <th class="col-sm-3">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($tasks as $item)
                         <tr>
-                            <td>
-                                <input type="checkbox"/>
-                            </td>
+                        <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td class="text-center">
                                 <a href="{{ url('/tasks/' . $item->id) }}" title="View Task"><button class="btn btn-outline-info btn-sm m-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

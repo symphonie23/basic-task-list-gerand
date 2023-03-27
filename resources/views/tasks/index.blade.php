@@ -26,7 +26,12 @@
                             <th class="col-sm-3">Actions</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
+                  
+                    
+                                   
+
                         @foreach($tasks as $item)
                         <tr>
                             <td class="text-center">{{ $item->id }}</td>
