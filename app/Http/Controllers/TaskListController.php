@@ -10,9 +10,18 @@ class TaskListController extends Controller
     public function index()
     {
         $tasklists = TaskList::all();
-
-        return view('tasklists.index', compact('tasklists'));
+        $counts = [];
+        foreach ($tasklists as $tasklist) {
+            $totalTasks = $tasklist->tasks()->count();
+            $completedTasks = $tasklist->tasks()->whereNotNull('finished_at')->count();
+            $counts[$tasklist->id] = [
+                'total' => $totalTasks,
+                'completed' => $completedTasks,
+            ];
+        }
+        return view('tasklists.index', compact('tasklists', 'counts'));
     }
+    
 
     public function create()
     {
@@ -58,4 +67,12 @@ class TaskListController extends Controller
 
         return redirect()->route('tasklists.index');
     }
+
+    public function countFinishedTasks($id)
+    {
+    $taskList = TaskList::findOrFail($id);
+    $count = $taskList->tasks()->whereNotNull('finished_at')->count();
+    return view('tasks.index', compact('taskList', 'count'));
+    }
+
 }

@@ -20,8 +20,8 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th class="col-sm-1">ID</th>
-                                        <th class="col-sm-7">Task List Name</th>
-                                        <th class="col-sm-1">Status</th>
+                                        <th class="col-sm-5">Task List Name</th>
+                                        <th class="col-sm-3">No. of Completed Tasks</th>
                                         <th class="col-sm-3">Actions</th>
                                     </tr>
                                 </thead>
@@ -30,16 +30,8 @@
                                 <tr>
                                 <td class="text-center">{{ $tasklist->id }}</td>
                                     <td>{{ $tasklist->name }}</td>
-                                    <td>
-                                        <h6>8/11</h6>
-                                        <div class="progress progress-xs mt-2">
-                                        <div class="progress-bar bg-success" role="progressbar"
-                                            style="width: 50%"
-                                            aria-valuenow="40"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100">
+                                    <td class="text-center">{{ $counts[$tasklist->id]['completed'] }} / {{ $counts[$tasklist->id]['total'] }}</td>
                                     </td>
-                                        
                                         <td class="text-center">
                                             
                                             <a href="{{ url('/tasklists/' . $tasklist->id) }}" title="View Task"><button class="btn btn-outline-info btn-sm m-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
