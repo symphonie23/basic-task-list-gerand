@@ -31,6 +31,11 @@ Route::resource("/tasks", TaskController::class);
 Route::post('/tasks', [TaskController::class, 'store']);
 Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
 Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::post('/tasks/{id}/update', function ($id) {
+    $task = Task::find($id);
+    $task->finished_at = request('finished') ? now() : null;
+    $task->save();
+  });
 
 Route::resource("/tasklists", TaskListController::class);
 Route::post('/tasklists', [TaskListController::class, 'store']);

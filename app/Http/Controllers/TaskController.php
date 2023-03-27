@@ -45,13 +45,27 @@ class TaskController extends Controller
         $tasklists = TaskList::all();
         return view('tasks.edit', ['task_lists' => $tasklists])->with('tasks', $task);
     }
- 
     public function update(Request $request, string $id): RedirectResponse
     {
         $task = Task::find($id);
+        
+        if (!$task) {
+            return redirect('tasklists')->with('flash_message', 'Task not found!');
+        }
+        
         $input = $request->all();
-        $task->update($input);
-        return redirect('tasklists')->with('flash_message', 'Task Updated!');  
+       
+        if ($request->has('done')) {
+            $input['finished_at'] = now();
+        } else {
+            $input['finished_at'] = null;
+        }
+        
+        if (!$task->update($input)) {
+            return redirect('tasklists')->with('flash_message', 'Task update failed!');
+        }
+        
+        return redirect('tasklists')->with('flash_message', 'Task updated!');
     }
  
     
