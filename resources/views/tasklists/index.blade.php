@@ -44,9 +44,17 @@
 
                                 </tbody>
                             </table>
+                            
+                    
                     </div>
+                  
+                </div>
+                <br>
+                <div class="container1">
+                {{ $tasklists->links() }}
                 </div>
             </div>
+         
         </div>
     </div>
 @endsection
