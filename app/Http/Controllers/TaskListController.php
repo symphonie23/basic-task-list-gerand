@@ -9,8 +9,9 @@ class TaskListController extends Controller
 {
     public function index()
     {
-        $tasklists = TaskList::all();
+        $tasklists = TaskList::paginate(5);
         $counts = [];
+    
         foreach ($tasklists as $tasklist) {
             $totalTasks = $tasklist->tasks()->count();
             $completedTasks = $tasklist->tasks()->whereNotNull('finished_at')->count();
@@ -19,8 +20,10 @@ class TaskListController extends Controller
                 'completed' => $completedTasks,
             ];
         }
+    
         return view('tasklists.index', compact('tasklists', 'counts'));
     }
+    
     
 
     public function create()

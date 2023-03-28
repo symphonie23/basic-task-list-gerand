@@ -106,6 +106,11 @@ tr:hover td{
 ::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
+.container1 {
+  display: flex;
+  justify-content: center;
+}
+
  </style>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>    
