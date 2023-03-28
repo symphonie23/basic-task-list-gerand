@@ -4,8 +4,7 @@
 <div class="row d-flex justify-content-center">
   <div class="col-md-12">
     <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-        <div class="card-header">
-            <div class="table_header">
+        <div class="table_header">
             <h2>Tasks</h2>
             <div>
             <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">

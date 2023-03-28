@@ -1,18 +1,18 @@
 @extends('tasks.layout')
 @section('content')
 <div class="row d-flex justify-content-center">
-  <div class="col-md-12">
-    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-        <div class="card-header">
+    <div class="col-md-12">
+        <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
             <div class="table_header">
-            <h2>{{ $tasklist->name }}</h2>
-            <div>
-            <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Task Lists
+                <h2>{{ $tasklist->name }}</h2>
+                <div>
+                <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Task Lists
+                        </a>
+                    <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task" style="background-color: #2AAA8A; color:white;">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Create a Task
                     </a>
-                <a href="{{ url('/tasks/create') }}" class="btn btn-success btn-md" title="Add New Task" style="background-color: #2AAA8A; color:white;">
-                    <i class="fa fa-plus" aria-hidden="true"></i> Create a Task
-                </a>
+                </div>
             </div>
         </div>
         <div class="card">
