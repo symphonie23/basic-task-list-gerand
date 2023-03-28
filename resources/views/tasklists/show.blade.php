@@ -14,7 +14,6 @@
                     </a>
                 </div>
             </div>
-        </div>
         <div class="card">
             <div class="table_section">
                 <table class="table table-striped">
