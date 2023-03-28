@@ -33,11 +33,18 @@ class TaskController extends Controller
         return redirect('tasklists')->with('flash_message', 'Task Added!');
     }
  
-    public function show(string $id): View
+    public function show(string $id): RedirectResponse|View
     {
         $task = Task::find($id);
+    
+        if (!$task) {
+            return redirect('/tasks/error');
+        }
+    
         return view('tasks.show')->with('tasks', $task);
     }
+    
+    
  
     public function edit(string $id): View
     {

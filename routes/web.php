@@ -26,6 +26,9 @@ Route::get('/tasks', function () {
 Route::get('/tasklists', function () {
     return view('tasklists.index');
 });
+Route::get('/tasks/error', function () {
+    return view('tasks.error');
+});
 
 Route::resource("/tasks", TaskController::class);
 Route::post('/tasks', [TaskController::class, 'store']);
