@@ -20,8 +20,9 @@
                 <table class="table table-striped">
                     <thead>
                         <tr class="text-center">
-                            <th class="col-sm-auto">ID</th>
-                            <th class="col-sm-8">Task Name</th>
+                            <th class="col-sm-1">ID</th>
+                            <th class="col-sm-7">Task Name</th>
+                            <th class="col-sm-1">Status</th>
                             <th class="col-sm-3">Actions</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                         <tr>
                         <td class="text-center align-middle">{{ $item->id }}</td>
                             <td class="align-middle">{{ $item->name }}</td>
+                            <td class="text-center align-middle">{{ $item->finished_at ? 'DONE' : ''}}</td>
                             <td class="text-center">
                                 <a href="{{ url('/tasks/' . $item->id) }}" title="View Task"><button class="btn btn-outline-info btn-sm m-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                 <a href="{{ url('/tasks/' . $item->id . '/edit') }}" title="Edit Task"><button class="btn btn-outline-primary btn-sm m-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
