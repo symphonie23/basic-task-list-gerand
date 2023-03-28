@@ -28,12 +28,11 @@
                                 <tbody>
                                 @foreach($tasklists as $tasklist)
                                 <tr>
-                                <td class="text-center">{{ $tasklist->id }}</td>
-                                    <td>{{ $tasklist->name }}</td>
-                                    <td class="text-center">{{ $counts[$tasklist->id]['completed'] }} / {{ $counts[$tasklist->id]['total'] }}</td>
+                                <td class="text-center align-middle">{{ $tasklist->id }}</td>
+                                    <td class= "align-middle">{{ $tasklist->name }}</td>
+                                    <td class="text-center align-middle">{{ $counts[$tasklist->id]['completed'] }} / {{ $counts[$tasklist->id]['total'] }}</td>
                                     </td>
                                         <td class="text-center">
-                                            
                                             <a href="{{ url('/tasklists/' . $tasklist->id) }}" title="View Task"><button class="btn btn-outline-info btn-sm m-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/tasklists/' . $tasklist->id . '/edit') }}" title="Edit Task"><button class="btn btn-outline-primary btn-sm m-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             <form method="POST" action="{{ url('/tasklists/' . $tasklist->id) }}" accept-charset="UTF-8" style="display:inline">
@@ -47,7 +46,6 @@
 
                                 </tbody>
                             </table>
-                       
                     </div>
                 </div>
             </div>

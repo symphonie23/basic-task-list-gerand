@@ -26,16 +26,11 @@
                             <th class="col-sm-3">Actions</th>
                         </tr>
                     </thead>
-                    
                     <tbody>
-                  
-                    
-                                   
-
                         @foreach($tasks as $item)
                         <tr>
-                            <td class="text-center">{{ $item->id }}</td>
-                            <td>{{ $item->name }}</td>
+                            <td class="text-center align-middle">{{ $item->id }}</td>
+                            <td class="align-middle">{{ $item->name }}</td>
                             <td class="text-center">
                                 <a href="{{ url('/tasks/' . $item->id) }}" title="View Task"><button class="btn btn-outline-info btn-sm m-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                 <a href="{{ url('/tasks/' . $item->id . '/edit') }}" title="Edit Task"><button class="btn btn-outline-primary btn-sm m-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -19,7 +19,7 @@
         <input type="text" name="desc" id="desc" class="form-control" value="{{ $tasks->desc }}" disabled></br>
         @endif
 
-        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md" title="Back to Task Lists">
+        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md float-end" title="Back to Task Lists">
             Close
         </a>
       </div>
