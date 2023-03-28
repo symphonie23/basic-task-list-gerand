@@ -3,31 +3,29 @@
 <div class="row d-flex justify-content-center">
 
 <div class="col-md-12">
-<div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-  <div class="card-header">
-        <div class="table_header">
-            <h2>Task Lists</h2>
-            <div>
-                <a href="{{ url('/tasklists/create') }}" class="btn btn-md" style="background-color: #2AAA8A; color:white;" title="Add New Task">
-                    <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
-                </a>
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+            <div class="table_header">
+                <h2>Task Lists</h2>
+                <div>
+                    <a href="{{ url('/tasklists/create') }}" class="btn btn-md" style="background-color: #2AAA8A; color:white;" title="Add New Task">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Create Task List
+                    </a>
+                </div>
             </div>
-        </div>
         <div class="card">
-                     <div class="table_section">
-                        
-                        <table class="table table-striped">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th class="col-sm-1">ID</th>
-                                        <th class="col-sm-5">Task List Name</th>
-                                        <th class="col-sm-3">No. of Completed Tasks</th>
-                                        <th class="col-sm-3">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($tasklists as $tasklist)
-                                <tr>
+            <div class="table_section">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="col-sm-1">ID</th>
+                                <th class="col-sm-5">Task List Name</th>
+                                <th class="col-sm-3">No. of Completed Tasks</th>
+                                <th class="col-sm-3">Actions</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($tasklists as $tasklist)
+                            <tr>
                                 <td class="text-center align-middle">{{ $tasklist->id }}</td>
                                     <td class= "align-middle">{{ $tasklist->name }}</td>
                                     <td class="text-center align-middle">{{ $counts[$tasklist->id]['completed'] }} / {{ $counts[$tasklist->id]['total'] }}</td>
