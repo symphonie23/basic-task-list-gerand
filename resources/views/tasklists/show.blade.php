@@ -30,7 +30,14 @@
                         <tr>
                         <td class="text-center align-middle">{{ $item->id }}</td>
                             <td class="align-middle">{{ $item->name }}</td>
-                            <td class="text-center align-middle">{{ $item->finished_at ? 'DONE' : ''}}</td>
+                            <td class="text-center align-middle">
+                                    @if($item->finished_at)
+                                        <span class="badge bg-success">DONE</span>
+                                    @else
+                                        <span class="badge bg-danger">NOT DONE</span>
+                                    @endif
+                                    </td>
+
                             <td class="text-center">
                                 <a href="{{ url('/tasks/' . $item->id) }}" title="View Task"><button class="btn btn-outline-info btn-sm m-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                 <a href="{{ url('/tasks/' . $item->id . '/edit') }}" title="Edit Task"><button class="btn btn-outline-primary btn-sm m-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

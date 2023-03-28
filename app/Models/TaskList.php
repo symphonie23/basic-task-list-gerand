@@ -15,4 +15,6 @@ class TaskList extends Model
     {
         return $this->hasMany(Task::class);
     }
+    protected $table = 'task_lists';
+    protected $model = TaskList::class; // <- make sure the namespace is correct
 }

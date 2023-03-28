@@ -28,7 +28,22 @@
                             <tr>
                                 <td class="text-center align-middle">{{ $tasklist->id }}</td>
                                     <td class= "align-middle">{{ $tasklist->name }}</td>
-                                    <td class="text-center align-middle">{{ $counts[$tasklist->id]['completed'] }} / {{ $counts[$tasklist->id]['total'] }}</td>
+                                    <td class="text-center align-middle">
+                                        {{ $counts[$tasklist->id]['completed'] }} / {{ $counts[$tasklist->id]['total'] }}
+                                        <span class="badge rounded-pill 
+                                            @if ($counts[$tasklist->id]['completed'] == $counts[$tasklist->id]['total'])
+                                                bg-success
+                                            @else
+                                                bg-warning
+                                            @endif
+                                            ">
+                                            @if ($counts[$tasklist->id]['completed'] == $counts[$tasklist->id]['total'])
+                                            Completed
+                                            @else
+                                            Incomplete
+                                            @endif
+                                        </span>
+                                        </td>
                                     </td>
                                         <td class="text-center">
                                             <a href="{{ url('/tasklists/' . $tasklist->id) }}" title="View Task"><button class="btn btn-outline-info btn-sm m-1"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
