@@ -19,6 +19,7 @@ class TaskFactory extends Factory
         return [
             'name' =>$this->faker->sentence(4),
             'desc' =>$this->faker->paragraph(2),
+            'deadline_at' =>$this->faker->dateTimeBetween('now', '+1 month'),
             'task_list_id' =>TaskList::factory(),
         ];
     }

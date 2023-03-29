@@ -19,17 +19,21 @@
                 <table class="table table-striped">
                     <thead>
                         <tr class="text-center">
-                            <th class="col-sm-1">ID</th>
-                            <th class="col-sm-7">Task Name</th>
+                            <th class="col-sm-5">Task Name</th>
+                            <th class="col-sm-3">Deadline</th>
                             <th class="col-sm-1">Status</th>
                             <th class="col-sm-3">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($tasks as $item)
+                    @foreach($tasks->sortBy('deadline_at') as $item)
                         <tr>
-                        <td class="text-center align-middle">{{ $item->id }}</td>
-                            <td class="align-middle">{{ $item->name }}</td>
+                        <td class="align-middle">{{ $item->name }}</td>
+                        <td class="text-center align-middle">
+                            @if ($item->deadline_at)
+                                {{ \Carbon\Carbon::parse($item->deadline_at)->format('m-d-Y') }}
+                            @endif
+                        </td>
                             <td class="text-center align-middle">
                                     @if($item->finished_at)
                                         <span class="badge bg-success">DONE</span>
