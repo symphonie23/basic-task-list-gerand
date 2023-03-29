@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskListController;
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,7 @@ use App\Http\Controllers\TaskListController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 //button to tasks (button)
 Route::get('/tasks', function () {
@@ -47,7 +49,7 @@ Auth::routes();
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/tasklists', [TaskListController::class, 'index'])->name('tasklists.index'); 
@@ -55,3 +57,33 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index'); 
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('home');
+    })->name('home');
+});
+
+Route::post('/reset-password', [
+    'uses' => 'App\Http\Controllers\Auth\NewPasswordController@store',
+    'as' => 'password.update'
+]);
+
+// Routes that require authentication
+Route::middleware(['auth'])->group(function () {
+    // Add your protected routes here
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Route::post('/logout', function (Request $request) {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
+Route::get('/password/reset', [ForgotPasswordController::class, 'index']);

@@ -10,16 +10,14 @@
     <title>Task Application</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- CSS only -->
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!--??????????-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>    <!--??????????-->
     <title>{{ config('app.name', 'Laravel') }}</title>
  <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -132,7 +130,7 @@ tr:hover td{
         <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-transparent">
           <div class="container">
             <!--Laravel logo-->
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ url('/dashboard') }}">
               {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -163,6 +161,17 @@ tr:hover td{
                         {{ Auth::user()->name }}
                       </a>
                       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      <!--Profile-->
+                      <a class="dropdown-item" href="{{ route('profile.show') }}">
+                            {{ __('Profile') }}
+                        </a>
+                      <!--API Token--> 
+                      @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                          <a class="dropdown-item" href="{{ route('api-tokens.index') }}">
+                              {{ __('API Tokens') }}
+                          </a>
+                      @endif
+                      <!--Logout-->
                         <a class="dropdown-item" href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -171,6 +180,9 @@ tr:hover td{
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                           @csrf
                         </form>
+                            
+                            <div class="border-t border-gray-200"></div>
+
                       </div>
                     </li>
                 @endguest

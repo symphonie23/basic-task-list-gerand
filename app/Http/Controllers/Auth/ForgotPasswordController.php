@@ -19,4 +19,10 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    public function index()
+    {
+        $this->middleware('guest')->except('logout');
+        return view('reset');
+    }
 }
