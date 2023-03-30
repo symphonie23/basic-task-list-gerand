@@ -13,9 +13,13 @@ class Task extends Model
                     'name', 
                     'desc',
                     'task_list_id',
-                    'finished_at'
+                    'finished_at',
+                    'deadline_at'
                 ];
-
+    protected $casts = [
+                    'deadline_at' => 'datetime',
+                ];
+                
     public function taskList()
     {
         return $this->belongsTo(TaskList::class);
