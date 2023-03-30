@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Task;
 use App\Models\TaskList;
+use Carbon\Carbon;
 use Illuminate\View\View;
  
 class TaskController extends Controller
@@ -16,10 +17,13 @@ class TaskController extends Controller
  
     public function index(): View
     {
-        $tasks = Task::all();
-        return view ('tasks.index')->with('tasks', $tasks);
-    }
- 
+        $tasks = Task::orderByRaw('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END')
+            ->orderBy('deadline_at', 'asc')
+            ->orderBy('created_at', 'asc')
+            ->get();
+        return view('tasks.index')->with('tasks', $tasks);
+    }    
+    
     public function create()
     {
         $task_lists = TaskList::all();
@@ -36,6 +40,13 @@ class TaskController extends Controller
     public function show(string $id): View
     {
         $task = Task::find($id);
+        $tasks = Task::where('task_list_id', $task->tasklist_id)
+                    ->orderBy('deadline_at', 'asc')
+                    ->get()
+                    ->map(function ($task) {
+                        $task->formatted_deadline = $task->deadline_at ? Carbon::parse($task->deadline_at)->format('m-d-Y') : '';
+                        return $task;
+                    });
         return view('tasks.show')->with('tasks', $task);
     }
  
