@@ -70,12 +70,4 @@ class TaskListController extends Controller
 
         return redirect()->route('tasklists.index');
     }
-
-    public function countFinishedTasks($id)
-    {
-    $taskList = TaskList::findOrFail($id);
-    $count = $taskList->tasks()->whereNotNull('finished_at')->count();
-    return view('tasks.index', compact('taskList', 'count'));
-    }
-
 }

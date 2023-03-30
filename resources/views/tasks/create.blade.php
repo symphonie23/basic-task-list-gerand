@@ -20,7 +20,8 @@
           <label>Task Description</label>
           <input type="text" name="desc" id="desc" class="form-control"><br>
           <label for="deadline">Deadline:</label>
-          <input type="date" name="deadline_at" id="deadline_at" class="form-control" value="{{ ('deadline_at') }}" />
+          <input type="datetime-local" name="deadline_at" id="deadline_at" class="form-control" value="{{ ('deadline_at') }}" />
+          <br>
           <!--save button-->
           <input type="submit" value="Save" class="btn btn-success btn-md float-end" style="background-color: #2AAA8A; color:white;">
           <!--button to go back to the tasklists page-->

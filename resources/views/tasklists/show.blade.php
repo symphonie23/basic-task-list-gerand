@@ -30,10 +30,10 @@
                         <tr>
                         <td class="align-middle">{{ $item->name }}</td>
                         <td class="text-center align-middle">
-                            @if ($item->deadline_at)
-                                {{ \Carbon\Carbon::parse($item->deadline_at)->format('m-d-Y') }}
-                            @endif
-                        </td>
+                                @if ($item->deadline_at)
+                                    {{ \Carbon\Carbon::parse($item->deadline_at)->format('m-d-Y H:i:s') }}
+                                @endif
+                            </td>
                             <td class="text-center align-middle">
                                     @if($item->finished_at)
                                         <span class="badge bg-success">DONE</span>
