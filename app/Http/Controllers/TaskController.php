@@ -17,10 +17,7 @@ class TaskController extends Controller
  
     public function index(): View
     {
-        $tasks = Task::orderByRaw('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END')
-            ->orderBy('deadline_at', 'asc')
-            ->orderBy('created_at', 'asc')
-            ->get();
+        $tasks = Task::all();
         return view('tasks.index')->with('tasks', $tasks);
     }    
     
@@ -33,9 +30,10 @@ class TaskController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $input = $request->all();
-        Task::create($input);
-        return redirect('tasklists')->with('flash_message', 'Task Added!');
-    }
+        $task = Task::create($input);
+        $taskListId = $task->task_list_id;
+        return redirect()->route('tasklists.show', ['tasklist' => $taskListId])->with('flash_message', 'Task Added!');
+    }    
  
     public function show(string $id): RedirectResponse|View
     {
@@ -83,13 +81,19 @@ class TaskController extends Controller
             return redirect('tasklists')->with('flash_message', 'Task update failed!');
         }
         
-        return redirect('tasklists')->with('flash_message', 'Task updated!');
+        $tasklist_id = $task->task_list_id;
+    return redirect()->route('tasklists.show', ['tasklist' => $tasklist_id])->with('flash_message', 'Task updated!');
     }
  
     
     public function destroy(string $id): RedirectResponse
     {
+        $task = Task::with('tasklist')->findOrFail($id);
+        $tasklist_id = $task->tasklist->id;
+    
         Task::destroy($id);
-        return redirect('tasklists')->with('flash_message', 'Task Deleted!');
-    }  
+    
+        return redirect()->route('tasklists.show', ['tasklist' => $tasklist_id])->with('flash_message', 'Task Deleted!');
+    }
+    
 }

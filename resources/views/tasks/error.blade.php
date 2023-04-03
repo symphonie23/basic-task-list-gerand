@@ -5,16 +5,17 @@
 
     <div class="four_zero_four_bg">
     <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-    <div class="card-header">
-
+    <div style="display: flex; justify-content: center;">
+          <img src="https://media.tenor.com/phf8L9aIy5gAAAAj/mimibubu.gif" style="width: 230px; height: 230px;">
+    </div>
       <h1 class="text-center ">404</h1>  
-    <center><h3> Look like you're lost
+    <center><h3> Looks like you're lost!
 
 </h3>
     
-    <p>the page you are looking for not avaible!</p>
+    <p>The page you are looking for is not available!</p>
     
-  <a href="{{ url('/tasks') }}" class="btn btn-success"" title="Back to Tasks">Go to Task</a>
+  <a href="{{ url('/tasks') }}" class="btn btn-success" title="Back to Tasks">Go to Task</a>
 </div>   
 </form>
       </div>
