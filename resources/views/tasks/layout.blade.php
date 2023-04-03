@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
     <title>Task Application</title>
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -16,14 +14,12 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- CSS only -->
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!--??????????-->
     <title>{{ config('app.name', 'Laravel') }}</title>
  <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 *{
     margin:0;
     padding: 0;
@@ -56,7 +52,7 @@ button {
 }
 .add_new{
     padding: 10px 20px;
-    color: #ffffff;
+    color: #FFFFFF;
     background-color: green;
 }
 input {
@@ -83,18 +79,18 @@ table{
 thead, th{
     position: sticky;
     top: 0;
-    background-color: #d2d8db;
+    background-color: #D2D8DB;
     color: black;
     font-size: 15px;
 }
 th,td{
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #DDDDDD;
     padding:10px 20px;
     word-break: break-all;
 }
 tr:hover td{
-        color: #2AAA8A;   
-        background-color: #f6f9fc;
+        color: #2AAA8A;
+        background-color: #F6F9FC;
 }
 ::-webkit-scrollbar{
     height: 5px;
@@ -112,44 +108,30 @@ tr:hover td{
 }
 .page_404{ padding:40px 0;  font-family: 'Arvo', serif;
 }
-
 .page_404  img{ width:100%;}
-
 .four_zero_four_bg{
- 
-
-
  }
- 
- 
  .four_zero_four_bg h1{
  font-size:80px;
  }
- 
   .four_zero_four_bg h3{
        font-size:80px;
        }
-       
-       .link_404{      
+       .link_404{
   color: #fff!important;
     padding: 10px 20px;
-    background: #39ac31;
+    background: #39AC31;
     margin: 20px 0;
     display: inline-block;}
   .contant_box_404{ margin-top:-50px;}
-
-
-
  </style>
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>    
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script>
       const myModal = document.getElementById('myModal')
       const myInput = document.getElementById('myInput')
-
       myModal.addEventListener('shown.bs.modal', () => {
         myInput.focus()
       })
@@ -179,13 +161,11 @@ tr:hover td{
                       <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                   @endif
-
                   @if (Route::has('register'))
                     <li class="nav-item">
                       <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                   @endif
-
                   @else
                     <li class="nav-item dropdown">
                       <a id="navbarDropdown" style="color: #2AAA8A;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
