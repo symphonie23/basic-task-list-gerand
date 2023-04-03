@@ -33,6 +33,7 @@ class TaskController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $input = $request->all();
+        $input['created_by'] = auth()->user()->id;
         Task::create($input);
         return redirect('tasklists')->with('flash_message', 'Task Added!');
     }

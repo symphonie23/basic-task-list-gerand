@@ -19,6 +19,10 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- CKEditor JS -->
+
+<!-- CKEditor CSS -->
+
     <!--??????????-->
     <title>{{ config('app.name', 'Laravel') }}</title>
  <style>
@@ -153,6 +157,9 @@ tr:hover td{
       myModal.addEventListener('shown.bs.modal', () => {
         myInput.focus()
       })
+
+     
+
     </script>
   </head>
   <body style="background-image: url('https://images.unsplash.com/photo-1678776682765-25854662bbdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2081&q=80'); background-size: cover; background-attachment: fixed; background-repeat: no-repeat;">
