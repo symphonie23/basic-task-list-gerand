@@ -42,7 +42,7 @@ Route::post('/tasks/{id}/update', function ($id) {
 
 Route::resource("/tasklists", TaskListController::class);
 Route::post('/tasklists', [TaskListController::class, 'store']);
-Route::delete('/tasklists/{task}', [TaskListController::class, 'destroy']);
+Route::delete('/tasklists/{id}', [TaskListController::class, 'hello']);
 Route::get('/tasklists/{id}/edit', [TaskListController::class, 'edit'])->name('tasklists.edit');
 Auth::routes();
 
@@ -58,3 +58,8 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index'); 
 });
+
+
+
+
+

@@ -4,10 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
     use HasFactory;
+
+    use SoftDeletes;
+    
+    protected $dates = ['deleted_at', 'deleted_by'];
 
     protected $fillable = [
                     'name', 
@@ -15,11 +20,13 @@ class Task extends Model
                     'task_list_id',
                     'finished_at',
                     'deadline_at',
-                    'created_by'
+                    'created_by',
+                    'deleted_by'
                 ];
     protected $casts = [
                     'deadline_at' => 'datetime',
                 ];
+                
                 
     public function taskList()
     {

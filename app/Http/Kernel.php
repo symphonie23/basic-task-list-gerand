@@ -21,6 +21,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\CheckDeletedUser::class,
+    
     ];
 
     /**
@@ -36,7 +38,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            'setTaskListOwner',
+            //'setTaskListOwner',
+            'checkDeletedUser',
         ],
 
         'api' => [
@@ -67,9 +70,9 @@ class Kernel extends HttpKernel
     ];
     protected $routeMiddleware = [
         // ...
-        'checkTaskListOwnership' => \App\Http\Middleware\CheckTaskListOwnership::class,
-        'setTaskListOwner' => \App\Http\Middleware\SetTaskListOwner::class,
-    
+        //'setTaskListOwner' => \App\Http\Middleware\SetTaskListOwner::class,
+        'checkDeletedUser' => \App\Http\Middleware\CheckDeletedUser::class,
+
     ];
     
 }
