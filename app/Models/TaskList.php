@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskList extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    protected $dates = ['deleted_at', 'deleted_by'];    
     
     protected $fillable = [
         'name',

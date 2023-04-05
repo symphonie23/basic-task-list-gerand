@@ -9,7 +9,9 @@ class TaskListController extends Controller
 {
     public function index()
     {
-        $tasklists = TaskList::where('created_by', auth()->user()->id)->paginate(5);
+        $tasklists = TaskList::where('created_by', auth()->user()->id)
+                        ->where('deleted_by', NULL)
+                        ->paginate(5);
         $counts = [];
         foreach ($tasklists as $tasklist) {
             $totalTasks = $tasklist->tasks()->count();
@@ -21,7 +23,7 @@ class TaskListController extends Controller
         }
         return view('tasklists.index', compact('tasklists', 'counts'));
     }
-    
+
     public function create()
     {
         $tasklists = TaskList::all();
@@ -34,33 +36,24 @@ class TaskListController extends Controller
        $taskList = new TaskList();
         $taskList->name = $request->input('name');
         $taskList->created_by = $request->input('created_by');
-        $taskList->deleted_by = $request->input('deleted_by');
         $taskList->save();
-
         return redirect()->route('tasklists.index');
     }
 
-    public function show(TaskList $tasklist)
+    public function show($id)
     {
-        $tasks = $tasklist->tasks;
+        $tasklist = TaskList::findOrFail($id);
+        $tasks = $tasklist->tasks->where('deleted_by', NULL);
         return view('tasklists.show', ['tasklist' => $tasklist, 'tasks' => $tasks]);
     }
-
 
     public function edit(TaskList $tasklist)
     {
         return view('tasklists.edit', compact('tasklist'));
     }
-    public function hello(Request $request, TaskList $tasklist)
-    {
-        dd($request);
-        die;
-    }
 
     public function update(Request $request, TaskList $tasklist)
     {
-        dd($request);
-        die;
         $tasklist->update([
             'name' => $request->name,
         ]);
@@ -68,10 +61,14 @@ class TaskListController extends Controller
         return redirect()->route('tasklists.index');
     }
 
-    public function destroy(TaskList $tasklist)
+    public function destroy(Request $request, $id)
     {
-        $tasklist->delete();
+        $tasklist = TaskList::findOrFail($id);
+        $tasklist->update([
+            'deleted_by' => $request->deleted_by
+        ]);
 
         return redirect()->route('tasklists.index');
     }
+    
 }

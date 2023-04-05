@@ -6,7 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
 use App\Models\TaskList;
 use Carbon\Carbon;
@@ -86,11 +86,14 @@ class TaskController extends Controller
         
         return redirect('tasklists')->with('flash_message', 'Task updated!');
     }
- 
     
-    public function destroy(string $id): RedirectResponse
+    public function destroy(Request $request, $id)
     {
-        Task::destroy($id);
+        $task = Task::findOrFail($id);
+        $task->update([
+            'deleted_by' => $request->deleted_by
+        ]);
+
         return redirect('tasklists')->with('flash_message', 'Task Deleted!');
     }  
 }

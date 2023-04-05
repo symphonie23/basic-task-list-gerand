@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
+
 class SetTaskListOwner
 {
     public function handle($request, Closure $next)
@@ -15,7 +16,7 @@ class SetTaskListOwner
             if (!isset($data['created_by'])) {
                 $data['created_by'] = $user->id;
             }
-         
+            
             $request->merge($data);
         }
 
