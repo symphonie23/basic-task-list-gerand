@@ -6,7 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Task;
 use App\Models\TaskList;
 use Carbon\Carbon;
@@ -30,11 +30,11 @@ class TaskController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $input = $request->all();
-        $task = Task::create($input);
-        $taskListId = $task->task_list_id;
-        return redirect()->route('tasklists.show', ['tasklist' => $taskListId])->with('flash_message', 'Task Added!');
-    }    
- 
+        $input['created_by'] = auth()->user()->id;
+        Task::create($input);
+        return redirect('tasklists')->with('flash_message', 'Task Added!');
+    }   
+
     public function show(string $id): RedirectResponse|View
     {
         $task = Task::find($id);
@@ -84,16 +84,14 @@ class TaskController extends Controller
         $tasklist_id = $task->task_list_id;
     return redirect()->route('tasklists.show', ['tasklist' => $tasklist_id])->with('flash_message', 'Task updated!');
     }
- 
     
-    public function destroy(string $id): RedirectResponse
+    public function destroy(Request $request, $id)
     {
-        $task = Task::with('tasklist')->findOrFail($id);
-        $tasklist_id = $task->tasklist->id;
-    
-        Task::destroy($id);
-    
-        return redirect()->route('tasklists.show', ['tasklist' => $tasklist_id])->with('flash_message', 'Task Deleted!');
-    }
-    
+        $task = Task::findOrFail($id);
+        $task->update([
+            'deleted_by' => $request->deleted_by
+        ]);
+
+        return redirect('tasklists')->with('flash_message', 'Task Deleted!');
+    }  
 }

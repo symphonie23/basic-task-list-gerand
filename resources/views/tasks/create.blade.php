@@ -17,8 +17,8 @@
           </select><br> <!-- this section is for the tasklist-->
           <label>Task Name</label>
           <input type="text" name="name" id="name" class="form-control"><br>
-          <label>Task Description</label>
-          <input type="text" name="desc" id="desc" class="form-control"><br>
+          <label>Task Description</label><br>
+          <input type="text" name="desc" id="desc" class="form-control ckeditor"><br>
           <label for="deadline">Deadline:</label>
           <input type="datetime-local" name="deadline_at" id="deadline_at" class="form-control" value="{{ ('deadline_at') }}" />
           <br>
