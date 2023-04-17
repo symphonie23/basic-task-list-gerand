@@ -17,10 +17,7 @@ class TaskController extends Controller
  
     public function index(): View
     {
-        $tasks = Task::orderByRaw('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END')
-            ->orderBy('deadline_at', 'asc')
-            ->orderBy('created_at', 'asc')
-            ->get();
+        $tasks = Task::all();
         return view('tasks.index')->with('tasks', $tasks);
     }    
     
@@ -36,8 +33,8 @@ class TaskController extends Controller
         $input['created_by'] = auth()->user()->id;
         Task::create($input);
         return redirect('tasklists')->with('flash_message', 'Task Added!');
-    }
- 
+    }   
+
     public function show(string $id): RedirectResponse|View
     {
         $task = Task::find($id);
@@ -84,7 +81,8 @@ class TaskController extends Controller
             return redirect('tasklists')->with('flash_message', 'Task update failed!');
         }
         
-        return redirect('tasklists')->with('flash_message', 'Task updated!');
+        $tasklist_id = $task->task_list_id;
+    return redirect()->route('tasklists.show', ['tasklist' => $tasklist_id])->with('flash_message', 'Task updated!');
     }
     
     public function destroy(Request $request, $id)

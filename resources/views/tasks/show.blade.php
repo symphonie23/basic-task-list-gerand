@@ -19,7 +19,12 @@
         <input type="text" name="desc" id="desc" class="form-control" value="{{ $tasks->desc }}" disabled></br>
         @endif
 
-        <a href="{{ url('/tasks') }}" class="btn btn-secondary btn-md float-end" title="Back to Task Lists">
+        @if ($tasks)
+        <label>Task Description</label></br>
+        <input type="datetime-local" name="deadline_at" id="deadline_at" class="form-control" value="{{ $tasks->deadline_at }}" disabled></br>
+        @endif
+
+        <a href="{{ url('/tasklists') }}" class="btn btn-secondary btn-md float-end" title="Back to Task Lists">
             Close
         </a>
       </div>

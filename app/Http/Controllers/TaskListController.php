@@ -70,5 +70,4 @@ class TaskListController extends Controller
 
         return redirect()->route('tasklists.index');
     }
-    
 }

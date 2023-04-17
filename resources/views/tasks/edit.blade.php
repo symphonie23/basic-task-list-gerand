@@ -24,6 +24,8 @@
 
             <label>Task Description</label></br>
             <input type="text" name="desc" id="desc" value="{{$tasks->desc}}" class="form-control"></br>
+            <label for="deadline">Deadline:</label>
+            <input type="datetime-local" name="deadline_at" id="deadline_at" class="form-control" value="{{ ('deadline_at') }}" /><br>
             <input class="mx-2 my-2" type="checkbox" name="done" {{ $tasks->finished_at ? 'checked' : '' }}>
             <label for="done" class= "leads">Task Done</label>
               <!--button to go back to the tasklists page-->
