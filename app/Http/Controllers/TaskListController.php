@@ -7,10 +7,14 @@ use Illuminate\Http\Request;
 
 class TaskListController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $query = $request->query('search');
         $tasklists = TaskList::where('created_by', auth()->user()->id)
                         ->where('deleted_by', NULL)
+                        ->when($query, function ($q) use ($query) {
+                            $q->where('name', 'like', '%' . $query . '%');
+                        })
                         ->paginate(5);
         $counts = [];
         foreach ($tasklists as $tasklist) {
@@ -23,10 +27,6 @@ class TaskListController extends Controller
         }
         return view('tasklists.index', compact('tasklists', 'counts'));
     }
-
-    return view('tasklists.index', compact('tasklists', 'counts'));
-}
-
 
     public function create()
     {
