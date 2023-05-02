@@ -7,22 +7,30 @@ use Illuminate\Http\Request;
 
 class TaskListController extends Controller
 {
-    public function index()
-    {
-        $tasklists = TaskList::where('created_by', auth()->user()->id)
-                        ->where('deleted_by', NULL)
-                        ->paginate(5);
-        $counts = [];
-        foreach ($tasklists as $tasklist) {
-            $totalTasks = $tasklist->tasks()->count();
-            $completedTasks = $tasklist->tasks()->whereNotNull('finished_at')->count();
-            $counts[$tasklist->id] = [
-                'total' => $totalTasks,
-                'completed' => $completedTasks,
-            ];
-        }
-        return view('tasklists.index', compact('tasklists', 'counts'));
+    public function index(Request $request)
+{
+    $query = $request->query('search');
+
+    $tasklists = TaskList::where('created_by', auth()->user()->id)
+                    ->where('deleted_by', NULL)
+                    ->when($query, function ($q) use ($query) {
+                        $q->where('name', 'like', '%' . $query . '%');
+                    })
+                    ->paginate(5);
+
+    $counts = [];
+    foreach ($tasklists as $tasklist) {
+        $totalTasks = $tasklist->tasks()->count();
+        $completedTasks = $tasklist->tasksCompleted();
+        $counts[$tasklist->id] = [
+            'total' => $totalTasks,
+            'completed' => $completedTasks,
+        ];
     }
+
+    return view('tasklists.index', compact('tasklists', 'counts'));
+}
+
 
     public function create()
     {
