@@ -24,10 +24,6 @@ class TaskListController extends Controller
         return view('tasklists.index', compact('tasklists', 'counts'));
     }
 
-    return view('tasklists.index', compact('tasklists', 'counts'));
-}
-
-
     public function create()
     {
         $tasklists = TaskList::all();
