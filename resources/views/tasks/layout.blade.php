@@ -128,6 +128,17 @@ tr:hover td{
     margin: 20px 0;
     display: inline-block;}
   .contant_box_404{ margin-top:-50px;}
+
+/* CSS transition for the button */
+.animate-btn {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the button */
+.animate-btn:hover {
+    transform: translateY(-20px);
+}
+
  </style>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -140,7 +151,10 @@ tr:hover td{
         myInput.focus()
       })
 
-     
+      function showLoginError() {
+        alert("You must log in to proceed");
+        return false; // Prevent the link from being followed
+    }
 
     </script>
   </head>

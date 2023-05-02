@@ -14,8 +14,8 @@ class TaskListController extends Controller
                         ->paginate(5);
         $counts = [];
         foreach ($tasklists as $tasklist) {
-            $totalTasks = $tasklist->tasks()->count();
-            $completedTasks = $tasklist->tasks()->whereNotNull('finished_at')->count();
+            $totalTasks = $tasklist->taskCount();
+            $completedTasks = $tasklist->tasksCompleted();
             $counts[$tasklist->id] = [
                 'total' => $totalTasks,
                 'completed' => $completedTasks,
@@ -65,7 +65,9 @@ class TaskListController extends Controller
     {
         $tasklist = TaskList::findOrFail($id);
         $tasklist->update([
-            'deleted_by' => $request->deleted_by
+            'deleted_by' => $request->deleted_by,
+            'deleted_at' => $request->deleted_at
+
         ]);
 
         return redirect()->route('tasklists.index');

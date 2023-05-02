@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class CheckDeletedUser
 {
@@ -13,7 +14,8 @@ class CheckDeletedUser
             $data = $request->all();
 
             $data['deleted_by'] = $user->id;
-            
+            $data['deleted_at'] = Carbon::now();
+
             $request->merge($data);
     }
 

@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\TaskList;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TaskList>
@@ -16,6 +18,7 @@ class TaskListFactory extends Factory
     {
         return [
             'name' =>$this->faker->sentence(3),
+            'id' => User::factory(),
         ];
     }
 }
