@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\TaskList;
 use App\Models\Task;
+use App\Models\User;
  
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +17,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void 
     {
-        \App\Models\TaskList::factory(20)->create()->each(function ($taskList) {
-            $taskList->tasks()->saveMany(\App\Models\Task::factory(4)->create(['task_list_id' => $taskList->id]));
+        // Create 10 Users
+        User::factory(10)->create()->each(function ($user) {
+            // For each User, create 20 TaskLists and associate them with 4 Tasks each
+            TaskList::factory(20)->create()->each(function ($taskList) {
+                $taskList->tasks()->saveMany(Task::factory(4)->create(['task_list_id' => $taskList->id]));
+            });
         });
-    
     }
 }
+
+
+
+

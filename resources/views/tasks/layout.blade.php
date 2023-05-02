@@ -136,91 +136,15 @@ font-size:80px;
     display: inline-block;}
   .contant_box_404{ margin-top:-50px;}
 
-  .dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+/* CSS transition for the button */
+.animate-btn {
+    transition: transform 0.3s ease-in-out;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+/* Hover effect for the button */
+.animate-btn:hover {
+    transform: translateY(-20px);
 }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-/* Style the dropdown button */
-.dropdown .btn {
-  border: none;
-}
-
-/* Style the dropdown menu */
-.dropdown-menu {
-  min-width: unset;
-  padding: 0;
-}
-
-/* Style the dropdown items */
-.dropdown-item {
-  padding: 5px 10px;
-  color: #333;
-}
-
-/* Style the dropdown items on hover */
-.dropdown-item:hover {
-  background-color: #f8f9fa;
-  color: #333;
-}
-.search-container {
-    align-items: center;
-    margin-bottom: 0.5rem;
-    width: 25%;
-    border: 1px solid #ccc;
-    margin-left: auto;
-    justify-content: flex-end;
-}
-
-
-.search-container .input-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-}
-
-.search-container .input-group input {
-    flex: 1;
-    border: none;
-}
-
-.search-container .input-group button {
-    border: none;
-    background: transparent;
-}
-
-
 
  </style>
     <!-- JavaScript Bundle with Popper -->
@@ -234,7 +158,10 @@ font-size:80px;
         myInput.focus()
       })
 
-     
+      function showLoginError() {
+        alert("You must log in to proceed");
+        return false; // Prevent the link from being followed
+    }
 
     </script>
   </head>

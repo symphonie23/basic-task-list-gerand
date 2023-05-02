@@ -30,15 +30,13 @@ class TaskList extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function taskCount()
-    {
+    public function taskCount() {
         return $this->tasks()->where('deleted_by', NULL)->count();
     }
 
-    public function tasksCompleted()
-    {
-        return $this->tasks()->where('deleted_by', NULL)->whereNotNULL('finished_at')->count();
+    public function tasksCompleted() {
+        return $this->tasks()->where('deleted_by', NULL)->whereNotNull('finished_at')->count();
     }
-
+    
     protected $table = 'task_lists';
 }

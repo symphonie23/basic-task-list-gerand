@@ -23,16 +23,19 @@ class TaskController extends Controller
     
     public function create()
     {
-        $task_lists = TaskList::all();
+        $task_lists = TaskList::whereNull('deleted_at')
+            ->whereNull('deleted_by')
+            ->get();
         return view('tasks.create', compact('task_lists'));
     }
+    
   
     public function store(Request $request): RedirectResponse
     {
         $input = $request->all();
-        $input['created_by'] = auth()->user()->id;
-        Task::create($input);
-        return redirect('tasklists')->with('flash_message', 'Task Added!');
+        $task = Task::create($input);
+        $taskListId = $task->task_list_id;
+        return redirect()->route('tasklists.show', ['tasklist' => $taskListId])->with('flash_message', 'Task Added!');
     }   
 
     public function show(string $id): RedirectResponse|View
@@ -52,8 +55,6 @@ class TaskController extends Controller
                     });
         return view('tasks.show')->with('tasks', $task);
     }
-    
-    
  
     public function edit(string $id): View
     {
@@ -88,10 +89,12 @@ class TaskController extends Controller
     public function destroy(Request $request, $id)
     {
         $task = Task::findOrFail($id);
+        $tasklist_id = $task->tasklist->id;
         $task->update([
-            'deleted_by' => $request->deleted_by
+            'deleted_by' => $request->deleted_by,
+            'deleted_at' => $request->deleted_at
         ]);
 
-        return redirect('tasklists')->with('flash_message', 'Task Deleted!');
-    }  
+        return redirect()->route('tasklists.show', ['tasklist' => $tasklist_id])->with('flash_message', 'Task Deleted!');
+        }  
 }
